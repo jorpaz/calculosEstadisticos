@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de Estadística</title>
+    <link rel="stylesheet" href="./style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Balsamiq+Sans:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <main class="contenido">
+        <h1>PROYECTO FINAL DE ESTADISTICA</h1>
+        <!-- Opciones para hacer calculos estadísticos -->
+        <div class="container__options">
+            <div class="items" id="option_tendencia-central" onclick="mostrarTema('tendencia-central')">Medidas de tendencia central</div>
+            <div class="items" id="option_bernoulli" onclick="mostrarTema('bernoulli')">Distribución de Bernoulli</div>
+            <div class="items" id="option_poisson" onclick="mostrarTema('poisson')">Distribución de Poisson</div>
+            <div class="items" id="option_binomial" onclick="mostrarTema('binomial')">Distribución Binomial</div>
+            <div class="items" id="option_normal" onclick="mostrarTema('normal')">Distribución Normal</div>
+            <div class="items" id="option_bayes" onclick="mostrarTema('bayes')">Teorema de Bayes</div>
+        </div>
+
+
+        <!-- Sección de Medidas de Tendencia Central -->
+        <div id="tendencia-central" class="contenido-tema activo">
+            <div class="tema-descripcion">
+                <h2>Medidas de Tendencia Central</h2>
+                <p>Las medidas de tendencia central son valores estadísticos que tienden a situarse en el centro de un conjunto de datos ordenados. Son indicadores que resumen y dan una visión general de un conjunto de datos mediante un solo valor que representa típicamente a todo el grupo. Estas medidas incluyen la media, la mediana y la moda.</p>
+                <p>Para analizar las medidas de tendencia central, los usuarios deben comprender lo que representa cada una y qué datos necesitan para calcularlas:</p>
+                <ul>
+                    <li><b>Media (Promedio):</b> Suma de todos los valores de datos dividida por el número total de elementos. Se necesita un conjunto de números para calcular la media.</li>
+                    <li><b>Mediana:</b> El valor medio en un conjunto de datos ordenados. Si el número total de datos es impar, es el número central; si es par, es el promedio de los dos números centrales. Se requiere el conjunto completo de datos, preferiblemente ya ordenados.</li>
+                    <li><b>Moda:</b> El valor o valores que aparecen con más frecuencia en un conjunto de datos. Dependiendo de la naturaleza de los datos, puede haber una moda, más de una, o ninguna (en caso de que todos los datos aparezcan con la misma frecuencia). Se necesita el conjunto de datos para identificar la moda.</li>
+                </ul>
+                <p>Estas medidas son fundamentales en estadísticas descriptivas y se utilizan comúnmente en diversos campos, desde la sociología hasta la economía, la psicología y más, para analizar tendencias y patrones en los datos recopilados.</p>
+            </div>
+            <div class="tema">
+                <p>Introduce tus datos separados por comas:</p>
+                <input type="text" id="datos" placeholder="Ej. 1,2,3,4,5">
+                <button onclick="calcularTendenciaCentral()">Calcular</button>
+                <p id="resultado" class="resultado"></p>
+            </div>
+        </div>
+
+        <!-- Sección de Distribución de Bernoulli -->
+        <div id="bernoulli" class="contenido-tema">
+            <div class="tema-descripcion">
+                <h2>Distribución de Bernoulli</h2>
+                <p>La distribución de Bernoulli es una distribución de probabilidad discreta de un experimento de Bernoulli, un experimento que tiene exactamente dos resultados posibles, "éxito" (con probabilidad p) y "fracaso" (con probabilidad 1-p). Para hacer el cálculo de la distribución de Bernoulli, necesitamos ingrese el valor de "p" y luego mostrarle las probabilidades de éxito y fracaso.</p>
+            </div>
+            <div id="bernoulli" class="tema">
+                <label for="prob">Probabilidad de éxito "p" (0 < p < 1):</label>
+                <input type="number" inputmode="numeric" id="prob" step="any" min="0" max="1" required>
+                <button onclick="calcularBernoulli()">Calcular</button>
+                <div id="resultadoBernoulli"></div>
+            </div>
+        </div>
+
+        <!-- Sección de Distribución de Poisson -->
+        <div id="poisson" class="contenido-tema">
+            <div class="tema-descripcion">
+                <h2>Distribución de Poisson</h2>
+                <p>La distribución de Poisson es un modelo estadístico que se utiliza para predecir la probabilidad de ocurrencia de eventos en un espacio o intervalo de tiempo fijos, considerando que estos eventos suceden con una tasa constante y de manera independiente entre sí. Es especialmente útil para modelar eventos raros o aleatorios en un espacio o periodo de tiempo específicos.</p>
+            <p>Al realizar cálculos relacionados con la distribución de Poisson, es crucial ingresar información precisa para los siguientes componentes:</p>
+            <ul>
+                <li><b>Tasa media de éxito (λ):</b> También conocida como 'parámetro de tasa', representa el número promedio de veces que se espera que ocurra un evento en el intervalo especificado. Por ejemplo, si se estudia la cantidad de llamadas que recibe una central telefónica por hora, λ sería el promedio de llamadas esperadas por hora.</li>
+                <li><b>Número de eventos (k):</b> Este es el número específico de eventos para el cual el usuario desea calcular la probabilidad. En el contexto de la central telefónica, k sería el número de llamadas para el que se desea encontrar la probabilidad en una hora dada.</li>
+            </ul>
+            
+            <p>Con estos dos datos, la distribución de Poisson puede predecir la probabilidad de que ocurra un número particular de eventos, lo que ayuda en la planificación y análisis en diversas áreas como la gestión de inventarios, los estudios de siniestralidad en seguros, y la teoría de colas en operaciones de servicio.</p>
+            </div>
+            <div id="poisson" class="tema">
+                <label for="rate">Tasa media de éxito (λ):</label>
+                <input type="number" id="rate" step="any" required>
+
+                <label for="numEvents">Número de eventos (k):</label>
+                <input type="number" id="numEvents" step="any" required>
+
+                <button onclick="calcularPoisson()">Calcular</button>
+                <div id="resultadoPoisson" class="resultado"></div>
+            </div>
+        </div>
+
+        <!-- Sección de Distribución Binomial -->
+        <div id="binomial" class="contenido-tema">
+            <div class="tema-descripcion">
+                <h2>Distribución Binomial</h2>
+                <p>La distribución binomial es una distribución de probabilidad discreta que describe el número de éxitos en una secuencia de n ensayos independientes de sí o no (como cara o cruz), cada uno con su propia probabilidad de éxito.</p>
+                <p>Para calcular la probabilidad usando la distribución binomial, introduzca los siguientes parámetros:</p>
+                <ul>
+                    <li><b>Número de ensayos (n):</b> Corresponde al número total de eventos o pruebas independientes en el experimento.</li>
+                    <li><b>Probabilidad de éxito en un solo ensayo (p):</b> Es la probabilidad de que ocurra un éxito en un ensayo individual. Debe ser un valor entre 0 y 1, donde 0 indica imposibilidad y 1 indica certeza.</li>
+                    <li><b>Número de éxitos (k) deseados:</b> El número específico de éxitos que el usuario desea evaluar dentro del número total de ensayos.</li>
+                </ul>
+            </div>
+            <div id="binomial" class="tema">
+                
+                <label for="trials">Número de ensayos (n):</label>
+                <input type="number" id="trials" required>
+
+                <label for="successProbability">Probabilidad de éxito (p):</label>
+                <input type="number" step="any" id="successProbability" required>
+
+                <label for="successNumber">Número de éxitos (x):</label>
+                <input type="number" id="successNumber" required>
+
+                <button onclick="calcularBinomial()">Calcular</button>
+                
+                <div id="resultadoBinomial" class="resultado"></div>
+            </div>
+        </div>
+
+        <!-- Distribución Normal -->
+        <div id="normal" class="contenido-tema">
+            <div class="tema-descripcion">
+                <h2>Distribución Normal</h2>
+                <p>La distribución normal, también conocida como la "campana de Gauss", es fundamental en la estadística debido a su presencia en varios fenómenos naturales. Se caracteriza por su forma simétrica de campana donde la mayoría de las observaciones se agrupan alrededor del centro.</p>
+                <p>Para calcular la probabilidad asociada con la distribución normal, necesitamos que los usuarios introduzcan los siguientes datos y comprendan su propósito:</p>
+                <ul>
+                    <li><b>Media (μ):</b> Es el valor promedio de la distribución y se sitúa en el centro de la curva de la campana. Representa el punto donde se esperan los valores.</li>
+                    <li><b>Desviación estándar (σ):</b> Mide la dispersión de los datos respecto a la media. Una σ más grande indica un mayor esparcimiento de los datos; una más pequeña señala que los datos están más agrupados alrededor de la media.</li>
+                    <li><b>Valor de X:</b> Es el valor específico para el cual deseas calcular la probabilidad de ocurrencia. En el contexto de la distribución normal, estamos interesados en calcular la probabilidad de que la variable aleatoria sea menor que X, es decir, P(X < x).</li>
+                </ul>
+                
+                <p>Es importante destacar que, en la práctica, calcular la probabilidad exacta implica el área bajo la curva de la distribución normal, requiriendo técnicas de integración en el campo de cálculo. Sin embargo, aquí mostraremos cómo estos parámetros afectan la forma y posición de la curva normal.</p>
+            </div>
+        
+            <div id="normal" class="tema">
+                
+                <label for="mean">Media (μ):</label>
+                <input type="number" step="any" id="mean" required>
+            
+                <label for="stddev">Desviación Estándar (σ):</label>
+                <input type="number" step="any" id="stddev" required>
+            
+                <label for="xValue">Valor de X:</label>
+                <input type="number" step="any" id="xValue" required>
+            
+                <button onclick="calcularNormal()">Calcular</button>
+                
+                <div id="resultadoNormal" class="resultado"></div>
+            </div>
+        </div>
+
+        <!-- Sección del Teorema de Bayes -->
+        <div id="bayes" class="contenido-tema">
+            <div class="tema-descripcion">
+                <h2>Teorema de Bayes</h2>
+                <p>El Teorema de Bayes es un principio fundamental en el campo de la estadística y la teoría de la probabilidad. Ofrece una forma matemática de actualizar la probabilidad de un evento a medida que se obtiene nueva evidencia. Se utiliza ampliamente en una variedad de campos, desde la medicina hasta la ingeniería, para hacer inferencias predictivas.</p>
+                <p>Para utilizar el Teorema de Bayes y actualizar la probabilidad de un evento, es importante comprender y definir los siguientes términos:</p>
+                <ul>
+                    <li><b>Probabilidad a priori (P(A)):</b> Esta es nuestra creencia inicial o la probabilidad de un evento A antes de obtener nueva evidencia. Representa lo que sabemos antes de considerar los nuevos datos.</li>
+                    <li><b>Probabilidad a posteriori (P(A|B)):</b> Es la probabilidad revisada del evento A después de tomar en cuenta la nueva evidencia B. Este es el objetivo principal del cálculo de Bayes: entender cómo cambia nuestra creencia en la luz de nueva información.</li>
+                    <li><b>Probabilidad de la evidencia (P(B)):</b> La probabilidad del evento B, que es la nueva evidencia o información que estamos considerando.</li>
+                    <li><b>Probabilidad de la evidencia dada la hipótesis (P(B|A)):</b> Esto describe cuán probable es observar la nueva evidencia B si el evento A es verdadero.</li>
+                </ul>
+                
+                <p>El Teorema de Bayes nos ayuda a combinar estas probabilidades para obtener una nueva comprensión (la probabilidad a posteriori) de la situación después de considerar la nueva evidencia. Este proceso de actualización es fundamental en la toma de decisiones informadas y el razonamiento estadístico.</p>
+            </div>
+            <div id="bayesTheorem" class="tema">    
+                <label for="probA">Probabilidad de A (P(A)):</label>
+                <input type="number" step="any" id="probA" required>
+        
+                <label for="probBGivenA">Probabilidad de B dado A (P(B|A)):</label>
+                <input type="number" step="any" id="probBGivenA" required>
+                
+                <label for="probB">Probabilidad de B (P(B)):</label>
+                <input type="number" step="any" id="probB" required>
+        
+                <button onclick="calcularTeoremaBayes()">Calcular</button>
+                
+                <div id="resultadoTeoremaBayes" class="resultado"></div>
+            </div>
+        </div>
+    </main>
+
+    <script src="main.js"></script> <!-- Tu código JavaScript -->
+</body>
+</html>

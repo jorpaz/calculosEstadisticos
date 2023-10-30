@@ -1,0 +1,141 @@
+body {
+    font-family: 'Balsamiq Sans', cursive;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    /* text-align: center; */
+    background-color: #eeeeee;
+}
+
+h1 {
+    color: #1e2b4f;
+    padding: 20px;
+}
+
+.contenido-tema{
+    display: none;
+    transition: opacity 0.3s;
+}
+
+.contenido-tema.activo {
+    display: block;
+    opacity: 1;
+}
+
+.contenido-tema:not(.activo) {
+    opacity: 0;
+    position: absolute; /* Para prevenir que ocupen espacio */
+    pointer-events: none; /* Para prevenir interacciones */
+}
+
+.container__options{
+    display: flex;
+    flex-wrap: wrap;
+    padding: 8px;
+    row-gap: 8px;
+    column-gap: 8px;
+    margin: 12px;
+}
+
+.items{
+    flex-grow: 1;
+    flex-shrink: 0;
+    padding: 10px 15px;
+    cursor: pointer;
+    user-select: none;
+    transition: background-color 0.3s, color 0.3s;
+    color: #1c658c;
+    background-color: #eeeeee;
+    border-radius: 8px;
+}
+
+.items:hover {
+    background-color: #d8d2cb;
+    border-radius: 8px;
+}
+
+/* Clase para el item activo/seleccionado */
+.items.active {
+    background-color: #398ab9;
+    color: white;
+    border-radius: 8px;
+}
+
+
+
+button {
+    padding: 10px 15px;
+    cursor: pointer;
+}
+
+/* Sección de Distribución de Bernoulli */
+.contenido {
+    display: grid;
+    place-items: center;
+    /* width: 70%;
+    margin: auto; */
+    padding: 20px;
+}
+
+.tema-descripcion {
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 15px;
+    margin-bottom: 20px;
+}
+
+.tema-descripcion h2 {
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.tema-descripcion p {
+    color: #666;
+    text-align: justify;
+}
+
+.tema {
+    margin: 20px;
+    padding: 20px;
+    background-color: #d8d2cb;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+}
+
+.tema label {
+    margin-top: 10px;
+    display: block;
+}
+
+.tema input[type="number"], input[type="text"]{
+    margin-bottom: 10px;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #bbb;
+    width: 90%;
+    background-color: transparent;
+}
+
+.tema button {
+    padding: 10px 15px;
+    background-color: #1c658c;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.tema button:hover {
+    background-color: #398ab9;
+}
+
+.tema .resultado {
+    margin-top: 15px;
+    padding: 10px;
+    border-radius: 5px;
+    /* background-color: #e0e0e0; */
+    background-color: #398ab9;
+    color: #d8d2cb;
+    text-align: center;
+}
