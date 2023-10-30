@@ -39,6 +39,7 @@
                 <p>Introduce tus datos separados por comas:</p>
                 <input type="text" id="datos" placeholder="Ej. 1,2,3,4,5">
                 <button onclick="calcularTendenciaCentral()">Calcular</button>
+                <button onclick="reiniciarTendenciaCentral()">Nuevos Datos</button>
                 <p id="resultado" class="resultado"></p>
             </div>
         </div>
@@ -51,8 +52,9 @@
             </div>
             <div id="bernoulli" class="tema">
                 <label for="prob">Probabilidad de éxito "p" (0 < p < 1):</label>
-                <input type="number" inputmode="numeric" id="prob" step="any" min="0" max="1" required>
+                <input type="number" inputmode="numeric" pattern="[0-9]*[.,]?[0-9]+" id="prob" step="any" min="0" max="1" required>
                 <button onclick="calcularBernoulli()">Calcular</button>
+                <button onclick="reiniciarBernoulli()">Nuevos Datos</button>
                 <div id="resultadoBernoulli"></div>
             </div>
         </div>
@@ -78,6 +80,7 @@
                 <input type="number" id="numEvents" step="any" required>
 
                 <button onclick="calcularPoisson()">Calcular</button>
+                <button onclick="reiniciarPoisson()">Nuevos Datos</button>
                 <div id="resultadoPoisson" class="resultado"></div>
             </div>
         </div>
@@ -106,7 +109,7 @@
                 <input type="number" id="successNumber" required>
 
                 <button onclick="calcularBinomial()">Calcular</button>
-                
+                <button onclick="reiniciarBinomial()">Nuevos Datos</button>
                 <div id="resultadoBinomial" class="resultado"></div>
             </div>
         </div>
@@ -138,7 +141,7 @@
                 <input type="number" step="any" id="xValue" required>
             
                 <button onclick="calcularNormal()">Calcular</button>
-                
+                <button onclick="reiniciarNormal()">Nuevos Datos</button>
                 <div id="resultadoNormal" class="resultado"></div>
             </div>
         </div>
@@ -169,7 +172,7 @@
                 <input type="number" step="any" id="probB" required>
         
                 <button onclick="calcularTeoremaBayes()">Calcular</button>
-                
+                <button onclick="reiniciarBayes()">Nuevos Datos</button>
                 <div id="resultadoTeoremaBayes" class="resultado"></div>
             </div>
         </div>

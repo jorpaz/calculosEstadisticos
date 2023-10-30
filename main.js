@@ -231,3 +231,47 @@ function calcularTeoremaBayes() {
     // Mostrar el resultado
     document.getElementById('resultadoTeoremaBayes').innerHTML = 'Resultado: P(A|B) = ' + probAGivenB;
 }
+
+/* Reiniciadores de cálculos */
+// Función para reiniciar el cálculo de Tendencia Central
+function reiniciarTendenciaCentral() {
+    document.getElementById("datos").value = "";
+    document.getElementById("resultado").innerHTML = "";
+}
+
+// Para Bernoulli
+function reiniciarBernoulli() {
+    document.getElementById("prob").value = "";
+    document.getElementById("resultadoBernoulli").innerHTML = "";
+}
+
+// Para Poisson
+function reiniciarPoisson() {
+    document.getElementById("rate").value = "";
+    document.getElementById("numEvents").value = "";
+    document.getElementById("resultadoPoisson").innerHTML = "";
+}
+
+// Para Binomial
+function reiniciarBinomial() {
+    document.getElementById("trials").value = "";
+    document.getElementById("successProbability").value = "";
+    document.getElementById("successNumber").value = "";
+    document.getElementById("resultadoBinomial").innerHTML = "";
+}
+
+// Para Normal
+function reiniciarNormal() {
+    document.getElementById("mean").value = "";
+    document.getElementById("stddev").value = "";
+    document.getElementById("xValue").value = "";
+    document.getElementById("resultadoNormal").innerHTML = "";
+}
+
+// Para Bayes
+function reiniciarBayes() {
+    document.getElementById("probA").value = "";
+    document.getElementById("probBGivenA").value = "";
+    document.getElementById("probB").value = "";
+    document.getElementById("resultadoTeoremaBayes").innerHTML = "";
+}
